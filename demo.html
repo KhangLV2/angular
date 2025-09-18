@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.js"></script>
+  </head>
+  <body ng-app="app-route">
+    <div class="container">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#!/trangchu">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/lienhe">Liên hệ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/diendan">Diễn đàn</a>
+        </li>
+        <li class="nav-item">
+          <a href="view/d.html">Sản phẩm</a>
+        </li>
+      </ul>
+    </div>
+    <main>
+      <!-- định nghĩa vị trí mà nội dung sẽ render ra -->
+      <div ng-view></div>
+    </main>
+  </body>
+  <script>
+    var myRoute = angular.module("app-route", ["ngRoute"]);
+    myRoute.config(function ($routeProvider) {
+      $routeProvider
+        .when("/trangchu", {
+          templateUrl: "view/a.html",
+          //   controller: main,
+        })
+        .when("/lienhe", {
+          templateUrl: "view/b.html",
+        })
+        .when("/diendan", {
+          templateUrl: "view/c.html",
+        });
+    });
+  </script>
+</html>

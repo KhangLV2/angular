@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container" ng-controller="myCtrl">
+        <form>
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Chiều dài:</label>
+                <input type="text" class="form-control" id="email" name="email" ng-model="chieuDai">
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Chiều rộng:</label>
+                <input type="text" class="form-control" id="pwd" name="pswd" ng-model="chieuRong">
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Chu vi:</label>
+                <input type="text" class="form-control" id="pwd" name="pswd" ng-model="chuVi">
+            </div>
+            <button class="btn btn-primary" ng-click="tinhToan(chieuDai,chieuRong)">Submit</button>
+        </form>
+    </div>
+</body>
+
+<script>
+    var myApp = angular.module("myApp", []);
+    myApp.controller("myCtrl", function ($scope) {
+        $scope.chieuDai = 0;
+        $scope.chieuRong = 0;
+
+        $scope.tinhToan = function (chieuDai, chieuRong) {
+            $scope.chuVi = ($scope.chieuDai + $scope.chieuRong) * 2;
+            alert("Chu vi: " + $scope.chuVi)
+
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body ng-app="appRoute">
+    <!-- ng-view định nghĩa khu vực  -->
+    <header>
+        <h1>Dây là header</h1>
+    </header>
+    <main class="container">
+        <a href="#!/trang-chu">Trang chủ</a>
+        <a href="#!/lien-he/10">Liên hệ</a>
+        <div ng-view=""></div>
+    </main>
+    <footer>
+        <h1>Đây là footer</h1>
+    </footer>
+</body>
+<script src="js/TrangChuController.js"></script>
+<script src="js/LienHeController.js"></script>
+<script>
+    var myApp = angular.module("appRoute", ["ngRoute"]);
+    // ngRoute cung cấp tính năng định tuyến(điều hướng)
+    myApp.config(function ($routeProvider) {
+        //config là cấu hình các tham số trc khi khởi chạy chương trình
+        //$routeProvider mặc định không được thay đổi
+
+        $routeProvider.when("/trang-chu", {
+            templateUrl: "view/a.html",
+            controller: TrangChuController,
+        })
+            .when("/lien-he", {
+                templateUrl: "view/b.html",
+                controller: LienHeController,
+            }
+            )
+            .otherwise({
+                redirectTo: "/trang-chu"
+            })
+    });
+</script>
+
+</html>

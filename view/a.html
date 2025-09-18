@@ -1,0 +1,33 @@
+<form ng-submit="onsubMit()">
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Số a:</label>
+        <input type="number" class="form-control" id="email" ng-model="inputValue.soA">
+    </div>
+    <div class="mb-3">
+        <label for="pwd" class="form-label">Số b:</label>
+        <input type="number" class="form-control" id="pwd" ng-model="inputValue.soB">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div ng-if="ketQua" class="alert alert-warning">
+    <p>{{ketQua}}</p>
+</div>
+<!--  -->
+<br>
+<form ng-submit="onSubmitForm()">
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="email" ng-model="inputValue.us">
+    </div>
+    <div class="mb-3">
+        <label for="pwd" class="form-label">Password:</label>
+        <input type="text" class="form-control" id="pwd" ng-model="inputValue.ps">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div ng-show="hienThi">
+    <p>{{hienThi}}</p>
+</div>

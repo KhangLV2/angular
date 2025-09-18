@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="js/buoi6.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div class="container" ng-controller="myCtrl">
+      <select class="form-select" id="sel1" name="sellist1" ng-model="number">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <br />
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Ngày sinh</th>
+            <th>Mức lương</th>
+            <th>Giới tính</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="arr in empoyees">
+            <td ng-bind="$index+1"></td>
+            <td ng-bind="arr.name | uppercase"></td>
+            <td
+              ng-bind="arr.ngaySinh | date: 'dd/MM/yyyy'"
+              ng-mouseenter="myDyc(arr.ngaySinh)"
+            ></td>
+            >
+            <td ng-bind="arr.luong |currency:'':0"></td>
+            <td ng-bind="arr.gioiTinh == 0?'Nam':'Nữ'"></td>
+            <td>
+              <button
+                class="btn btn-success"
+                ng-click="onChange(arr.name,arr.ngaySinh)"
+              >
+                Click
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <h1 ng-bind="hoTen"></h1>
+      <input type="text" ng-model="hoTen" /> -->
+      <!-- <button class="btn btn-success" ng-click="onChange(hoTen)">Click</button> -->
+      <!-- <h3 ng-mouseenter="myDyc()">Dưa tay đây vào</h3> -->
+    </div>
+  </body>
+</html>
